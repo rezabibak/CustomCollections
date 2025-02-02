@@ -1,14 +1,6 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/**
- * Reviewed by Soheil Jahangiri and Reza Moein
- * Project Still has no name and it's untitled. change it. //finish
- * Reconsider to not send your code with build/out folder in it.
- * Reconsider to not send your .idea folder (this is related to your environment)
- *
- * @param <T>
- */
 public class IterableCustom<T> implements Iterable<T> {
     private Object[] items;
     private int size;
@@ -39,18 +31,10 @@ public class IterableCustom<T> implements Iterable<T> {
     private void resize() {
         //This is a default
         Object[] temp = new Object[items.length * 2];
-        // TODO: why using for over System.arraycopy ?
-        // Answer: It is usually faster to copy presentations because this optimized operation is performed at a lower level
         System.arraycopy(items, 0, temp, 0, this.items.length);
         items = temp;
     }
 
-    /**
-     * Imagine Java compiler is not smart enough to make your code branch-less.
-     * with that in mind, How can you make this code branch-less?
-     * or make it simplified.
-     */
-    //finish
 
     // remove by value
     public void remove(int index) {
@@ -72,8 +56,7 @@ public class IterableCustom<T> implements Iterable<T> {
     }
 
     public void remove(String item) {
-        // TODO unnecessary twice invocation of method "indexOfRange(item)"
-        // finish
+
         int index = indexOfRange(item);
         if (index >= 0) {
             remove(index);
@@ -85,10 +68,7 @@ public class IterableCustom<T> implements Iterable<T> {
 
     //find index value
     private int indexOfRange(Object o) {
-        // TODO:(From Soheil) what is this block of code doing?
-        //find index for remove by String value
-        // TODO:(From Reza) Try to refactor this part as a one loop
-        // finish
+
         for (int i = 0; i < items.length; i++) {
             if (o != null && o.equals(items[i])) {
                 return i;
@@ -128,8 +108,6 @@ public class IterableCustom<T> implements Iterable<T> {
 
         @Override
         public T next() {
-            // TODO better to use try catch only for get(i) method not for entire block
-            // finish
             int i = cursor;
             T next;
             try {
@@ -144,8 +122,6 @@ public class IterableCustom<T> implements Iterable<T> {
 
         @Override
         public void remove() {
-            // TODO: why using try catch here? when you are not going to throw any exception in "remove" operation?
-            // finish
             IterableCustom.this.remove(lastRet);
             cursor = lastRet;
             lastRet = -1;

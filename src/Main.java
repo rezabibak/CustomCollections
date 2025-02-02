@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
@@ -58,5 +59,7 @@ public class Main {
         for (String n : name) {
             System.out.println(n);
         }
+
+        Stack<String> names = new Stack<>();
     }
 }
