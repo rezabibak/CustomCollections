@@ -59,7 +59,5 @@ public class Main {
         for (String n : name) {
             System.out.println(n);
         }
-
-        Stack<String> names = new Stack<>();
     }
 }
